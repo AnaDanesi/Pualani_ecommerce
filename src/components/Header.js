@@ -1,13 +1,15 @@
-function Header() {
+import React from "react";
+
+const Header = () => {
 return (
-    <header>
-        <h1>E-Commerce</h1>
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Nosotros</a>
-            <a href="#">Tienda</a>
-        </nav>
-     </header>
+    <div id="menu">
+           <h1>Pualani Macetas en Concreto</h1>
+        <ul>
+           <li><a href="/#">Inicio</a></li>
+           <li><a href="/#">Tienda</a></li>
+           <li><a href="/#">Contacto</a></li>
+        </ul>
+    </div>
 )
 
 }
