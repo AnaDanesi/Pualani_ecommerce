@@ -2,6 +2,9 @@ import './index.js';
 import Header from "./components/Header";
 import Saludo from "./greeting";
 import Footer from "./components/Footer";
+import Button from "./button";
+import Contador from './container/Contador';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
@@ -14,7 +17,10 @@ function App() {
         <>
         <Header/>
         <Saludo/>
+        <Contador stock={5} initial={1}/>
+        <Button label ="Productos"/>
         <Footer data ={footerData}/>
+    
         </>
     )
 }
