@@ -1,11 +1,13 @@
-import React from 'react'
+
+/* eslint-disable jsx-a11y/alt-text */
+
+import React from "react";
 
 const Item = ( { elemento } ) => {
   console.log(elemento);
   return (
     <div>
-      <h3>{elemento.name}</h3>
-      <p>{elemento.rol}</p>
+      <img src="/sliderTricota.jpg"></img>
     </div>
   )
 }
