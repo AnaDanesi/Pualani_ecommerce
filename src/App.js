@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Button from "./button";
 import Contador from './ItemListContainer/Contador';
 import ItemCount from './ItemListContainer/ItemCount.js';
-import ItemListContainer from './ItemListContainer/ItemListContainer.js';
+import ItemDetailContainer from './ItemListContainer/ItemDetailContainer.js';
 import ItemDetail from './ItemListContainer/ItemDetail.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -44,7 +44,7 @@ useEffect (() => {
         <Item/>
         <ItemCount/>
         <ItemDetail/>
-        <ItemListContainer/>
+        <ItemDetailContainer/>
         <Footer data ={footerData}/>
     
         </>
