@@ -1,10 +1,11 @@
 
 import { useEffect , useState } from "react";
 import ItemDetail from "./ItemDetail";
+import Item from "../components/Item";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const listaProductos = [
-    {id:1,nombre: "Maceta Flora" , foto: "/macetaFlora.png", precio: 650, stock:2, info: "color ladrillo o amarillo" } ,
+    {id:1,nombre: "Maceta Flora" , foto: "/macetaFlora.png", precio: 650, stock:5, info: "color ladrillo o amarillo" } ,
     {id:2,nombre: "Combo Paila" , foto: "/comboPaila.png", precio: 1500,  stock:5, info: "color gris con franja a eleccion"} ,
     {id:3,nombre: "Maceta Canelon" , foto: "/macetaCanelon.png", precio: 750, stock:5, info: "color ladrillo, amarillo, verde"} ,
     {id:4,nombre: "Combo Bandeja Oval", foto: "/bandejaOval.png",precio: 1250, stock:5, info: "color blanco,gris o marmolado" } ,
@@ -28,9 +29,9 @@ function ItemDetailContainer() {
             },2000);
         });
         
-        promise.then((items) => {
+        promise.then((productos) => {
             setLoading(true);
-            setProducto(items);
+            setProducto(productos);
         });
         
 }, [id]);

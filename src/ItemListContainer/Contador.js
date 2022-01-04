@@ -17,12 +17,17 @@ const contador = ( { stock, initial, onAdd } ) => {
     }
   }
 
+  const resetearContador = () => {
+    setContador(0)
+  }
+
   return (
     <div id="contador">
         <h2>Cuantos productos queres comprar?</h2>
       <button onClick={() => restar()} >-</button>
       <p>{contador}</p>
       <button onClick={() => sumar()} >+</button>
+      <button onClick={resetearContador}>resetear</button>
     </div>
   )
 }

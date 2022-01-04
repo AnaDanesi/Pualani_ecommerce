@@ -1,7 +1,7 @@
 import { useState,useEffect} from 'react';
 import React from 'react';
 import './index.js';
-import Item from './components/Item';
+
 import Header from "./components/Header";
 import Saludo from "./greeting";
 import Footer from "./components/Footer";
@@ -40,7 +40,6 @@ useEffect (() => {
         <Saludo/>
         <Contador stock={5} initial={1}/>
         <Button label ="Productos"/>
-        <Item/>
         <ItemCount/>
         <ItemDetailContainer/>
         <Footer data ={footerData}/>

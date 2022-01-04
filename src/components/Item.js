@@ -1,13 +1,15 @@
-
-/* eslint-disable jsx-a11y/alt-text */
-
 import React from "react";
 
-const Item = ( { elemento } ) => {
-  console.log(elemento);
+
+const Item = ({producto}) => {
+
+  const {nombre, foto} = producto
   return (
     <div>
-      <img src="/sliderTricota.jpg"></img>
+      <li>
+        <h2> {nombre}</h2>
+      <img src={foto}/>
+      </li>
     </div>
   )
 }
