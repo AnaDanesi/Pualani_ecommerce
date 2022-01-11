@@ -1,51 +1,21 @@
-import { useState,useEffect} from 'react';
-import React from 'react';
-import './index.js';
-
-import Header from "./components/Header";
-import Saludo from "./greeting";
-import Footer from "./components/Footer";
-import Button from "./button";
-import Contador from './ItemListContainer/Contador';
-import ItemCount from './ItemListContainer/ItemCount.js';
-import ItemDetailContainer from './ItemListContainer/ItemDetailContainer.js';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './Header'
+import Footer from "./Footer"
+import Main from './Main'
+import { BrowserRouter } from "react-router-dom"
+import "./index.css"
 
 
-function App() {
-    const footerData = {
-        copyright :"Copyright© 2021",
-        author: "Anana"
-    }
 
-
-const [estado ] = useState(false);
-console.log(estado);
-
-useEffect (() => {
-    console.log("Aca está el efecto");
-
-    setTimeout (()=>{
-        console.log("Se activa");
-    },2000)
-    setInterval(() => {
-        console.log("Aqui tenes el intervalo");
-    }, 8000);
-    
-})
+function App(){
 
     return (
-        <>
-        <Header/>
-        <Saludo/>
-        <Contador stock={5} initial={1}/>
-        <Button label ="Productos"/>
-        <ItemCount/>
-        <ItemDetailContainer/>
-        <Footer data ={footerData}/>
-    
-        </>
-    )
+        <BrowserRouter>
+            <Header />
+            <h1>Bienvenidos a nuestra Tienda Online</h1>
+            <h2>Nuestro catálogo:</h2>
+            <Main />
+            <Footer /> 
+        </BrowserRouter>
+    )     
 }
-
-export default App;
+export default App
