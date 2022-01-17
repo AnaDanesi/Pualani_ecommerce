@@ -1,6 +1,7 @@
 import Header from './Header'
 import Footer from "./Footer"
 import Main from './Main'
+import CartProvider from "./CartContext";
 import { BrowserRouter } from "react-router-dom"
 import "./index.css"
 
@@ -9,6 +10,7 @@ import "./index.css"
 function App(){
 
     return (
+        <CartProvider> 
         <BrowserRouter>
             <Header />
             <h1>Bienvenidos a nuestra Tienda Online</h1>
@@ -16,6 +18,7 @@ function App(){
             <Main />
             <Footer /> 
         </BrowserRouter>
+        </CartProvider> 
     )     
 }
 export default App

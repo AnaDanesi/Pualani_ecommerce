@@ -1,26 +1,36 @@
+import { useContext, useState } from "react"
 import ItemCount from "./ItemCount"
-import { Link } from 'react-router-dom';
-import { Card } from 'react-bootstrap';
+import { contexto } from "./CartContext"
+import { useNavigate } from "react-router-dom";
 
+const ItemDetail = ({item}) => {
 
-const ItemDetail  = ({item, onAdd, added}) => {
+    const { nombre, foto, precio, stock, info} =item
+    const [mostrar, setMostrar] = useState(true)
+    const { agregarProducto } = useContext(contexto)
+    const navigate = useNavigate()
+
+    const verResultado = (cantidad) => {
+        setMostrar(false)
+        agregarProducto(item, cantidad)
+        
+    }
+
+    const redirectToCart = () => {
+        navigate("/cart")
+    }
+
     return (
-    <div id="CardDetail">
-    <Card style={{ width: '20rem' }}>
-    <Card.Img variant="top" src= {item.img} alt={item.nombre} width={200} />
-    <Card.Body>
-      <Card.Title>{ item.nombre}</Card.Title>
-      <Card.Text>
-      <p>Precio: ${item.precio}</p>
-    <p>+Info: {item.info}</p>
-      </Card.Text>
-      {added ? <Link to='/Cart'><h3>Ir al carrito</h3></Link> : <ItemCount stock={5} initial={1} onAdd={onAdd} /> }
-    </Card.Body>
-  </Card>
-  </div>
-
+        <div id="CardDetail">
+        <div className="detalle-producto">
+            <h1>{nombre}</h1>
+            <img className="detalle-imagen" src={foto} width={300}/>
+          <h2>Mas info:    {info}</h2>
+          {mostrar ? <ItemCount producto={item} stock={item.stock} initial={1} onAdd={verResultado} /> : null}
+          {!mostrar && <button onClick={redirectToCart}>Ir al carrito</button>}
+        </div>
+        </div>
     )
 }
-
 
 export default ItemDetail

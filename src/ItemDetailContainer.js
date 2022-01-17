@@ -1,4 +1,3 @@
-
 import {  useState, useEffect} from "react"
 import ItemDetail from "./ItemDetail"
 import { useParams } from "react-router-dom"
@@ -13,10 +12,10 @@ const detalle = [
     {id:6,nombre: "Maceta Geo" , foto: "/macetaGeo.png", precio: 900, stock:1, info: "color ladrillo,gris o amarillo" } ,
 ]
 const ItemDetailContainer = () => {
+    const [loading, setloading]=useState(false)
     const [producto, setProducto]= useState ({})
     const [added, setAdded] = useState(false);
     const { id } = useParams()
-    console.log(id)
 
     useEffect(() => {
         if(id){
@@ -30,6 +29,7 @@ const ItemDetailContainer = () => {
                 .then((producto) => {
                     console.log("Great")
                     setProducto(producto)
+                    setloading(true)
                 })
                 .catch(() => {
                     console.log("Bad")
@@ -40,11 +40,15 @@ const ItemDetailContainer = () => {
     const onAdd = (count) => {
         console.log(`Agregaste 1 producto: ${producto.nombre},cantidad: ${count}.`); setAdded(true);
       }
+
+      if(!loading){return (
+          <h4>...Loading</h4>
+      )}else{
     return (
         <div>
             <ItemDetail item={producto} onAdd={onAdd} added={added}/>
         </div>
     )
 }
-
+}
 export default ItemDetailContainer
