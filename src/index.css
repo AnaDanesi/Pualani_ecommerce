@@ -195,11 +195,80 @@ button{
 
 }
 
+
+#elDetalle {
+  text-align: center;
+  width: 480px;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 10px;
+  border:solid;
+  border-color: #10bd0a;
+  margin: 50px;
+  
+}
+
+#elDetalle img {
+ 
+  width: 400px;
+  height: 200px;
+  border: solid;
+  border-color: #10bd0a;
+
+  
+}
+#dEtalle{
+  text-align: center;
+  width: 600px;
+  display: grid;
+  grid-template-rows: auto;
+  justify-items: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 50px;
+  border:solid;
+  border-color: #0cb359;
+}
+
+#dEtalle img {
+
+  width: 400px;
+  height: 200px;
+  border:solid;
+  border-color: rgb(48, 218, 32);
+}
+
+article{
+  text-align: center;
+  width: 300px;
+  display: grid;
+  grid-template-columns: 2fr;
+  justify-items: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 50px;
+}
+
+article img{
+  border:solid;
+  border-color: gold;
+}
+
+button{
+  background-color: #20a0eb;
+  border: solid;
+  border-color: #edeee9;
+  size: 3cm;
+  width: 150px;
+  margin: 0 auto;
+
+}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 40px;  
+  font-size: 20px;  
   display: inline-block;
   line-height: 2;
   text-transform: none;
@@ -207,7 +276,30 @@ button{
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
-  color: rgb(144, 142, 142);
+  color: whitesmoke;
   margin: 0 auto;
   align-items: center;
+}
+
+#elCarrito {
+  display: flex;
+  flex-direction: column;
+  border: solid;
+  border-radius: 10%;
+  border-color: rgb(185, 182, 4);
+  padding: 0.5px;
+  width: 150px;
+}
+#elCarrito h5 {
+  color: rgb(6, 155, 51);
+  text-align: center;
+}
+
+#elCarrito .material-icons{
+  display: flex;
+  flex-direction: column;
+  color: rgb(9, 124, 44);
+  text-align: center;
+  margin: 0 auto;
+  text-align: center;
 }

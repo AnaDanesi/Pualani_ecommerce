@@ -1,19 +1,20 @@
+/* eslint-disable no-undef */
 import { useContext, useState } from "react"
 import ItemCount from "./ItemCount"
 import { contexto } from "./CartContext"
 import { useNavigate } from "react-router-dom";
 
-const ItemDetail = ({item}) => {
+const ItemDetail = ({ producto}) => {
 
-    const { nombre, foto, precio, stock, info} =item
+    const { nombre, detalle, precio,stock, img} = producto
     const [mostrar, setMostrar] = useState(true)
     const { agregarProducto } = useContext(contexto)
     const navigate = useNavigate()
 
-    const verResultado = (cantidad) => {
+    const verQueOnda = (cantidad) => {
         setMostrar(false)
-        agregarProducto(item, cantidad)
-        
+        agregarProducto(producto, cantidad)
+
     }
 
     const redirectToCart = () => {
@@ -21,13 +22,14 @@ const ItemDetail = ({item}) => {
     }
 
     return (
-        <div id="CardDetail">
+        <div id="dEtalle">
         <div className="detalle-producto">
             <h1>{nombre}</h1>
-            <img className="detalle-imagen" src={foto} width={300}/>
-          <h2>Mas info:    {info}</h2>
-          {mostrar ? <ItemCount producto={item} stock={item.stock} initial={1} onAdd={verResultado} /> : null}
-          {!mostrar && <button onClick={redirectToCart}>Ir al carrito</button>}
+            <img className="detalle-imagen" src={img} />
+            <h3>$ {precio}</h3>
+            <h3> Detalle: {detalle}</h3>
+            {mostrar ? <ItemCount producto={producto} stock={producto.stock} initial={1} onAdd={verQueOnda} /> : null}
+            {!mostrar && <button onClick={redirectToCart}>Continuar al Carrito</button>}
         </div>
         </div>
     )

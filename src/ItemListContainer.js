@@ -1,68 +1,58 @@
-import ItemList from "./ItemList.js"
-import {  useState, useEffect } from "react"
+import { useEffect , useState } from "react"
+import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
+import { db } from "./firebase"
+import { collection , getDocs , query , where } from "firebase/firestore"
 
 
-const listaProductos = [
-    {id:1,nombre: "Maceta Flora" , foto: "/macetaFlora.png", precio: 650, stock:5, info: "color ladrillo o amarillo" ,categoria:"macetas" } ,
-    {id:2,nombre: "Combo Paila" , foto: "/comboPaila.png", precio: 1500,  stock:5, info: "color gris con franja a eleccion" , categoria:"combos" } ,
-    {id:3,nombre: "Maceta Canelon" , foto: "/macetaCanelon.png", precio: 750, stock:5, info: "color ladrillo, amarillo, verde", categoria:"macetas" } ,
-    {id:4,nombre: "Combo Bandeja Oval", foto: "/bandejaOval.png",precio: 1250, stock:5, info: "color blanco,gris o marmolado" ,categoria:"combos" } ,
-    {id:5,nombre: "Combo Maceta Rectangular", foto:"/bandejaRectangular.png", precio: 1250, stock:3, info: "color blanco, verde, amarillo" ,categoria:"combos" } ,
-    {id:6,nombre: "Maceta Geo" , foto: "/macetaGeo.png", precio: 900, stock:1, info: "color ladrillo,gris o amarillo",categoria:"macetas"  } ,
-];
 
-const ItemListContainer = ({ titulo }) => {
+const ItemListContainer = ({ producto }) => {
 
-  let [lista, setLista] = useState([])
-  const {id} = useParams()
-  console.log(id)
+    const [productos, setProductos] = useState([])
+    const [loading, setLoading] = useState(true)
+    const {id} = useParams()
 
-  
+    
+    useEffect(() => {
 
-  useEffect(() => {
-      if(id){
-          console.log("Productos de la categoria " + id)
-          const filterCategoria = listaProductos.filter(e => e.categoria === id);
-          console.log(filterCategoria)
-          const promesa = new Promise((res, rej) => {
-              setTimeout(() => {
-                  res(filterCategoria)
-              }, 1000)
-          })
-          promesa
-              .then((lista) => {
-                  console.log("Great")
-                  setLista(lista)
-              })
-              .catch(() => {
-                  console.log("Bad")
-              })
-      }else{
-          console.log("Aca se pide todo el catalogo")
-          const promesa = new Promise((res, rej) => {
-              setTimeout(() => {
-                  res(listaProductos)
-              }, 1000)
-          })
-          promesa
-              .then((lista) => {
-                  console.log("Great")
-                  setLista(lista)
-              })
-              .catch(() => {
-                  console.log("Bad")
-              })
-      }
 
-  }, [id])
+        if(id){
+            const coleccionProductos = collection(db,"productos")
+            const filtro1 = where("categoria","==",id)
+            const filtro2 = where("precio",">",0)
+            const consulta = query(coleccionProductos,filtro1,filtro2)
+            const pedido = getDocs(consulta)
+            pedido
+                .then((resultado)=>{
+                    setProductos(resultado.docs.map(doc=>({id : doc.id,...doc.data()})))
+                    setLoading(false) 
+                })
+                .catch((error)=>{
+                    console.log(error)
+                })
+        }else {
+            const coleccionProductos = collection(db,"productos")
+            const pedido = getDocs(coleccionProductos)
+            pedido
+                .then((resultado)=>{
+                    setProductos(resultado.docs.map(doc=>({id : doc.id,...doc.data()})))
+                    setLoading(false) 
+                })
+                .catch((error)=>{
+                    console.log(error)
+                })
+        }
 
-      return (
-      <div>
-          <h2>{titulo}</h2>
-          <ItemList lista={lista} />
-      </div>
-  )
+
+    },[id])
+
+    const onAdd = () => { }
+
+
+    return (
+        <ItemList productos={productos}/>
+    )
+   
 }
 
 export default ItemListContainer

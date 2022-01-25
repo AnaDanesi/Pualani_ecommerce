@@ -16,7 +16,7 @@ function ItemCount ({ stockProducto, onAdd}) {
     }
     const restarContador = () => {
         if (contador=== 1) {
-            alert("No hay productos cargados")
+            alert("Sin macetas cargadas")
         } else {
             setContador(contador - 1)
         }
