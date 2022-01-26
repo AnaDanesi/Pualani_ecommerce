@@ -14,7 +14,7 @@ function App(){
         <BrowserRouter>
             <Header />
             <h1>Bienvenidos!</h1>
-            <h2>Nuestros productos:</h2>
+            <h2>Nuestro catalogo:</h2>
             <Main />
             <Footer /> 
         </BrowserRouter>

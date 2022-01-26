@@ -14,45 +14,31 @@ const ItemListContainer = ({ producto }) => {
 
     
     useEffect(() => {
+        const listaDeItems = collection(db, "productos");
+        const itemsFiltrados =
+         id ==="combos"
+           ? query(listaDeItems, where("categoria", "==", id))
+           : id === "macetas"
+           ? query(listaDeItems, where("categoria", "==", id))
+           : listaDeItems;
 
+        const pedido = getDocs(itemsFiltrados);
+        pedido
+            .then((resultado) => {
+                setProductos (
+                    resultado.docs.map((doc) => ({ id: doc.id, ...doc.data()}))
+                );
+                setLoading(false);
+            })
+            .catch((error)=> {
+                console.log(error);
+            });
+        }, [id]);
 
-        if(id){
-            const coleccionProductos = collection(db,"productos")
-            const filtro1 = where("categoria","==",id)
-            const filtro2 = where("precio",">",0)
-            const consulta = query(coleccionProductos,filtro1,filtro2)
-            const pedido = getDocs(consulta)
-            pedido
-                .then((resultado)=>{
-                    setProductos(resultado.docs.map(doc=>({id : doc.id,...doc.data()})))
-                    setLoading(false) 
-                })
-                .catch((error)=>{
-                    console.log(error)
-                })
-        }else {
-            const coleccionProductos = collection(db,"productos")
-            const pedido = getDocs(coleccionProductos)
-            pedido
-                .then((resultado)=>{
-                    setProductos(resultado.docs.map(doc=>({id : doc.id,...doc.data()})))
-                    setLoading(false) 
-                })
-                .catch((error)=>{
-                    console.log(error)
-                })
-        }
+const onAdd = () => {};
 
+return <ItemList productos={productos} />;
+};
 
-    },[id])
-
-    const onAdd = () => { }
-
-
-    return (
-        <ItemList productos={productos}/>
-    )
-   
-}
-
-export default ItemListContainer
+export default ItemListContainer;
+    
