@@ -13,8 +13,8 @@ function App(){
         <CartProvider> 
         <BrowserRouter>
             <Header />
-            <h1>Bienvenidos!</h1>
-            <h2>Nuestro catalogo:</h2>
+            <h1>¡Bienvenidos!</h1>
+            <h2>Nuestro catálogo:</h2>
             <Main />
             <Footer /> 
         </BrowserRouter>
