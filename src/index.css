@@ -167,6 +167,9 @@ main{
   align-items: center;
 }
 
+#listado-productos {
+  margin-left: 9%;
+}
 
 .box-producto{
   display: grid;
@@ -224,7 +227,7 @@ button{
 
  #dEtalle{
   text-align: center;
- 
+
   display: grid;
   grid-template-rows: auto;
   justify-items: center;
