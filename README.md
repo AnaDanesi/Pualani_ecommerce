@@ -1,5 +1,11 @@
-PÁGINA PUALANI TIENDA ONLINE
+Pualani E-Commerce
+Primer tienda virtual y acercamiento a React JS. Proyecto final de Coderhouse.
 
-El proyecto esta basado en la realizacion de un e commerce de macetas, combos de macetas y plantas. Como categorias se encuentran las macetas por separado, y los combois de maceta mas planta. 
-sse puede ver en la vista inicial el total del catalogo con su respectiva foto, info y precio. luego un boton para mayores detalles, como colores y stock de los productos.
-Esta primer entrega incluye la navegabilidad basica de la app, la navegacion a cada categoria y a cada producto. Se instalo bootstrap para simplificar estilos por ahora.
+Pualani es un emprendimiento real que realiza la venta de macetas y combos de macetas más planta, confeccionados en concreto gris y de otros colores.
+Todos los estilos, logos y fotos son de mi autoría.
+
+Este sitio fue creado con Create React App. Además de utilizó HTML5, CSS3, Bootstrap, JavaScript, GIT, NPM y Firsebase.
+
+
+Profesor: Horacio Gutierrez
+Tutor: Sergio Marino.
