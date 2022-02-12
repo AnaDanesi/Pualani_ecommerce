@@ -1,13 +1,13 @@
 import { useState } from "react"
 
 
-function ItemCount ({ stockProducto, onAdd}) {
-    console.log(stockProducto)
+function ItemCount ({ stock, onAdd}) {
+    console.log(stock)
     const [contador, setContador] = useState(1)
 
 
     const aumentarContador = () => {
-        if (stockProducto === contador) {
+        if (stock === contador) {
             alert("No hay stock disponible")
         }else{
             setContador(contador + 1)

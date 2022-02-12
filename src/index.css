@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Dosis:wght@300;400&family=Hammersmith+One&family=Montserrat:wght@200;300;400&family=Spartan:wght@200;300;400&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -17,15 +19,14 @@ html , body , #root {
 h1 {
   color: rgb(12, 119, 12);
   text-align: center;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: 'Comfortaa', cursive;
   font-size: 60px;
 }
 
 h2 {
   color: grey;
   text-align: center;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-style: italic;
+  font-family: 'Comfortaa', cursive;
 }
 
 h3 {
@@ -41,7 +42,7 @@ h4 {
 h5 {
   color:  rgb(77, 87, 77);
   text-align: center;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: 'Hammersmith One', sans-serif;
   font-style: oblique;
 }
 
@@ -49,20 +50,19 @@ h5 {
 p {
   color: rgb(109, 131, 105);
 }
+
 #logo img {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   }
 
-
-
 #carrito {
   display: flex;
   background-color: rgb(238, 227, 206);
   flex-direction: column;
   border: solid;
-  border-color: rgb(91, 114, 69);
+  border-color: rgb(238, 227, 206);
   padding: 0.5px;
   width: 130px;
 }
@@ -83,14 +83,13 @@ p {
 }
 
 #CardDetail p {
-
   color: black;
 }
 
 #CardDetail h3 {
-
   color: black;
 }
+
 #CardDetail button {
   margin: 0 auto;
   color: black;
@@ -98,29 +97,34 @@ p {
 
 footer {
   padding: 1rem;
-  background-color: rgb(168, 145, 145);
+  background-color: rgb(2, 2, 2);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Comfortaa', cursive;
   font-size: 25px;
+  margin-top: 2%;
 }
 footer p {
   color:whitesmoke;
 }
 
 header{
-  background-color:rgb(207, 233, 221);
+  background-color:rgb(228, 228, 228);
 }
 
 .navbar{
-  background-color:rgb(207, 233, 221);
-  margin:0 auto;
+  background-color:rgb(228, 228, 228);
+ margin: 0 auto;
+ margin-left: 2%;
+ margin-bottom: 3%;
   height: 100px;
+  font-family: 'Comfortaa', cursive;
 }
 
 .navbar ul {
 margin:0 auto;
+font-family: 'Comfortaa', cursive;
 font-size: 30px;
 padding: 10px;  
 
@@ -129,9 +133,10 @@ padding: 10px;
 .navbar li {
   margin: 20px;
   height: 70px;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-style: oblique;
-  
+  font-family: 'Comfortaa', cursive;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
@@ -158,8 +163,9 @@ main{
   align-content: center;
   justify-content: center;
   align-items: center;
-  padding: 10px;
 }
+
+
 .box-producto{
   display: grid;
   grid-template-columns: 225px 225px 225px 225px;
@@ -167,9 +173,8 @@ main{
   justify-items: center;
   align-items: center;
   margin: 10px;
-  padding: 5px;
-  
-}
+  padding: 10px;
+ }
 article{
   text-align: center;
   width: 300px;
@@ -197,29 +202,27 @@ button{
 
 
 #elDetalle {
+  box-sizing: content-box;
   text-align: center;
-  width: 480px;
+  background-color: white;
+  width: 300px;
   display: inline-block;
   border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
   border:solid;
-  border-color: #10bd0a;
-  margin: 50px;
-  
+  border-color: #0f8d0b;
+  margin: 80px; 
 }
 
 #elDetalle img {
  
-  width: 400px;
+  width: 200px;
   height: 200px;
-  border: solid;
-  border-color: #10bd0a;
+ }
 
-  
-}
-#dEtalle{
+ #dEtalle{
   text-align: center;
-  width: 600px;
+ 
   display: grid;
   grid-template-rows: auto;
   justify-items: center;
@@ -231,12 +234,9 @@ button{
 }
 
 #dEtalle img {
-
-  width: 400px;
+  width: 200px;
   height: 200px;
-  border:solid;
-  border-color: rgb(48, 218, 32);
-}
+  }
 
 article{
   text-align: center;
@@ -251,11 +251,11 @@ article{
 
 article img{
   border:solid;
-  border-color: gold;
+  border-color: white;
 }
 
 button{
-  background-color: #20a0eb;
+  background-color: #f6bb61;
   border: solid;
   border-color: #edeee9;
   size: 3cm;
@@ -286,7 +286,8 @@ button{
   flex-direction: column;
   border: solid;
   border-radius: 10%;
-  border-color: rgb(185, 182, 4);
+  border-color: rgb(245, 245, 241);
+  background-color:rgb(245, 245, 241);
   padding: 0.5px;
   width: 150px;
 }
@@ -298,7 +299,7 @@ button{
 #elCarrito .material-icons{
   display: flex;
   flex-direction: column;
-  color: rgb(9, 124, 44);
+  color: rgb(15, 15, 15);
   text-align: center;
   margin: 0 auto;
   text-align: center;
